@@ -39,28 +39,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ── CURSOR (desktop only) ── */
-@media (pointer: fine) {
-  body { cursor: none; }
-  .cursor, .cursor-ring { display: block; }
-}
-.cursor {
-  display: none;
-  position: fixed; width: 8px; height: 8px;
-  background: var(--accent2); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: transform .08s ease;
-  mix-blend-mode: screen;
-}
-.cursor-ring {
-  display: none;
-  position: fixed; width: 30px; height: 30px;
-  border: 1px solid var(--accent); border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  opacity: .45; transition: all .18s ease;
-}
+
 
 /* ── NAV ── */
 nav {
@@ -187,18 +166,16 @@ h1 em { color: var(--accent2); font-style: normal; }
 
 /* ── ABOUT ── */
 #about { border-top: 1px solid var(--border); }
-.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
 .about-copy { color: var(--muted2); font-size: 13px; line-height: 1.95; }
 .about-copy p { margin-bottom: 14px; }
 .about-copy strong { color: var(--text); font-weight: 500; }
 .about-copy p:last-child { margin-bottom: 0; }
 
 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-.stat {
-  background: var(--bg2); padding: 22px 18px; text-align: center;
-}
+.stat { background: var(--bg2); padding: 20px 16px; text-align: center; }
 .stat-n {
-  font-family: var(--display); font-size: 32px; font-weight: 800;
+  font-family: var(--display); font-size: 30px; font-weight: 800;
   color: var(--accent2); line-height: 1; margin-bottom: 5px;
 }
 .stat-l { font-size: 9px; color: var(--muted); letter-spacing: .12em; }
@@ -353,9 +330,6 @@ footer {
 </style>
 </head>
 <body>
-
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curRing"></div>
 
 <nav>
   <a href="#hero" class="nav-logo">LM<span>.</span></a>
@@ -663,31 +637,6 @@ footer {
 
 <script>
   // cursor
-  const cur = document.getElementById('cur');
-  const curRing = document.getElementById('curRing');
-  let mx=0,my=0,rx=0,ry=0;
-  if (window.matchMedia('(pointer: fine)').matches) {
-    document.addEventListener('mousemove', e => {
-      mx=e.clientX; my=e.clientY;
-      cur.style.left=mx+'px'; cur.style.top=my+'px';
-    });
-    (function anim(){
-      rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-      curRing.style.left=rx+'px'; curRing.style.top=ry+'px';
-      requestAnimationFrame(anim);
-    })();
-    document.querySelectorAll('a,button,.proj').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{
-        cur.style.transform='translate(-50%,-50%) scale(2)';
-        curRing.style.opacity='.8'; curRing.style.transform='translate(-50%,-50%) scale(1.5)';
-      });
-      el.addEventListener('mouseleave',()=>{
-        cur.style.transform='translate(-50%,-50%) scale(1)';
-        curRing.style.opacity='.45'; curRing.style.transform='translate(-50%,-50%) scale(1)';
-      });
-    });
-  }
-
   // contact form
   function sendForm() {
     const name    = document.getElementById('fname').value.trim();
