@@ -6,6 +6,7 @@
 <title>Lionel Medina — Desarrollador Web</title>
 <meta name="description" content="Portfolio de Lionel Medina, técnico en programación especializado en desarrollo web fullstack.">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%237c3aed'/%3E%3Crect x='10' y='12' width='8' height='38' fill='white'/%3E%3Crect x='10' y='42' width='20' height='8' fill='white'/%3E%3Crect x='36' y='12' width='7' height='38' fill='white'/%3E%3Cpolygon points='36,12 43,12 55,30 48,30' fill='white'/%3E%3Cpolygon points='55,12 62,12 62,30 55,30 43,30' fill='white'/%3E%3C/svg%3E">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -332,7 +333,18 @@ footer {
 <body>
 
 <nav>
-  <a href="#hero" class="nav-logo">LM<span>.</span></a>
+  <a href="#hero" class="nav-logo" aria-label="Lionel Medina — Inicio">
+    <svg width="165" height="36" viewBox="0 0 165 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="4" fill="#7c3aed"/>
+      <rect x="7" y="6" width="5" height="22" fill="white"/>
+      <rect x="7" y="23" width="12" height="5" fill="white"/>
+      <rect x="22" y="6" width="5" height="22" fill="white"/>
+      <polygon points="22,6 27,6 34.5,17 34.5,22 29,22" fill="white"/>
+      <polygon points="34.5,6 39,6 39,28 34,28 34.5,17" fill="white"/>
+      <text x="46" y="15" font-family="Syne,sans-serif" font-weight="800" font-size="13" fill="#e8e8e8" letter-spacing="-0.3">Lionel Medina</text>
+      <text x="46" y="28" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7c3aed" letter-spacing="1.8">DEV WEB</text>
+    </svg>
+  </a>
   <ul class="nav-links">
     <li><a href="#about">sobre mí</a></li>
     <li><a href="#projects">proyectos</a></li>
@@ -506,7 +518,7 @@ footer {
           <a href="https://turnos-psicologa-graciela.vercel.app/" target="_blank" class="proj-btn">live ↗</a>
         </div>
       </div>
-      <p class="proj-name">Turnos · Consultorio Psicóloga</p>
+      <p class="proj-name">Turnos · Consultorio Graciela</p>
       <p class="proj-desc">
         Plataforma web para la gestión de un consultorio psicológico privado. Los pacientes pueden
         registrarse con Google o correo electrónico, reservar turnos de forma online y comunicarse
